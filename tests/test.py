@@ -1,142 +1,90 @@
-from dad_jokes.jokes import DadJokes
+from .context import *
 
 
-def random_json():
-    res = DadJokes()
+class TestJokes:
+    def test_random_json(self):
+        res = random_json()
 
-    response = res.random_joke_as_json()
+        # status
+        assert res["status"] == 200
 
-    return response
+        # types
+        assert type(res["id"]) == type("")
+        assert type(res["joke"]) == type("")
 
+        # values
+        assert res["id"] is not None
+        assert res["joke"] is not None
 
-def random_text():
-    res = DadJokes()
+    def test_random_text(self):
+        res = random_text()
 
-    response = res.random_joke_as_text()
+        # types
+        assert type(res) == type("")
 
-    return response
+        # values
+        assert res is not None
 
+    def test_specific_json(self):
+        res = specific_json("R7UfaahVfFd")
 
-def specific_json(id):
-    res = DadJokes()
+        # status
+        assert res["status"] == 200
 
-    response = res.specific_joke_as_json(id=id)
+        # types
+        assert type(res["id"]) == type("")
+        assert type(res["joke"]) == type("")
 
-    return response
+        # values
+        assert res["id"] is not None
+        assert res["joke"] is not None
 
+    def test_specific_text(self):
+        res = specific_text("R7UfaahVfFd")
 
-def specific_text(id):
-    res = DadJokes()
+        # types
+        assert type(res) == type("")
 
-    response = res.specific_joke_as_text(id=id)
+        # values
+        assert res is not None
 
-    return response
+    def test_list_json(self):
+        page = 2
+        limit = 5
+        term = "cat"
 
+        res = list_json(page, limit, term)
 
-def list_json(page, limit, term):
-    res = DadJokes()
+        # status
+        assert res["status"] == 200
 
-    response = res.list_jokes_as_json(page=page, limit=limit, term=term)
+        # arguments
+        assert res["search_term"] == term
+        assert res["current_page"] == page
+        assert res["limit"] == limit and len(res["results"]) == limit
 
-    return response
+        # types
+        for joke in res["results"]:
+            assert type(joke["id"]) == type("")
+            assert type(joke["joke"]) == type("")
 
+        # values
+        for joke in res["results"]:
+            assert joke["id"] is not None
+            assert joke["joke"] is not None
 
-def list_text(limit):
-    res = DadJokes()
+    def test_list_text(self):
+        limit = 5
 
-    response = res.list_jokes_as_text(limit=limit)
+        res = list_text(limit)
 
-    return response
+        # arguments
+        res_list = res.splitlines()
 
+        assert len(res_list) == limit
 
-def test_random_json():
-    res = random_json()
+        # types
+        assert type(res) == type("")
 
-    # status
-    assert res["status"] == 200
-
-    # types
-    assert type(res["id"]) == type("")
-    assert type(res["joke"]) == type("")
-
-    # values
-    assert res["id"] is not None
-    assert res["joke"] is not None
-
-
-def test_random_text():
-    res = random_text()
-
-    # types
-    assert type(res) == type("")
-
-    # values
-    assert res is not None
-
-
-def test_specific_json():
-    res = specific_json("R7UfaahVfFd")
-
-    # status
-    assert res["status"] == 200
-
-    # types
-    assert type(res["id"]) == type("")
-    assert type(res["joke"]) == type("")
-
-    # values
-    assert res["id"] is not None
-    assert res["joke"] is not None
-
-
-def test_specific_text():
-    res = specific_text("R7UfaahVfFd")
-
-    # types
-    assert type(res) == type("")
-
-    # values
-    assert res is not None
-
-
-def test_list_json():
-    page = 2
-    limit = 5
-    term = "cat"
-
-    res = list_json(page, limit, term)
-
-    # status
-    assert res["status"] == 200
-
-    # arguments
-    assert res["search_term"] == term
-    assert res["current_page"] == page
-    assert res["limit"] == limit and len(res["results"]) == limit
-
-    # types
-    for joke in res["results"]:
-        assert type(joke["id"]) == type("")
-        assert type(joke["joke"]) == type("")
-
-    # values
-    for joke in res["results"]:
-        assert joke["id"] is not None
-        assert joke["joke"] is not None
-
-
-def test_list_text():
-    limit = 5
-
-    res = list_text(limit)
-
-    # arguments
-    res_list = res.splitlines()
-
-    assert len(res_list) == limit
-
-    # types
-    assert type(res) == type("")
-
-    # values
-    assert res is not None
+        # values
+        assert res is not None
