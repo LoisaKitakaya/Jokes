@@ -1,9 +1,11 @@
-from .context import *
+from dad_jokes.jokes import DadJokes
+
+dad_jokes = DadJokes()  # jokes module: DadJokes class
 
 
 class TestJokes:
     def test_random_json(self):
-        res = random_json()
+        res = dad_jokes.random_joke_as_json()
 
         # status
         assert res["status"] == 200
@@ -17,7 +19,7 @@ class TestJokes:
         assert res["joke"] is not None
 
     def test_random_text(self):
-        res = random_text()
+        res = dad_jokes.random_joke_as_text()
 
         # types
         assert type(res) == type("")
@@ -26,7 +28,7 @@ class TestJokes:
         assert res is not None
 
     def test_specific_json(self):
-        res = specific_json("R7UfaahVfFd")
+        res = dad_jokes.specific_joke_as_json(id="R7UfaahVfFd")
 
         # status
         assert res["status"] == 200
@@ -40,7 +42,7 @@ class TestJokes:
         assert res["joke"] is not None
 
     def test_specific_text(self):
-        res = specific_text("R7UfaahVfFd")
+        res = dad_jokes.specific_joke_as_text(id="R7UfaahVfFd")
 
         # types
         assert type(res) == type("")
@@ -53,7 +55,7 @@ class TestJokes:
         limit = 5
         term = "cat"
 
-        res = list_json(page, limit, term)
+        res = dad_jokes.list_jokes_as_json(page=page, limit=limit, term=term)
 
         # status
         assert res["status"] == 200
@@ -76,7 +78,7 @@ class TestJokes:
     def test_list_text(self):
         limit = 5
 
-        res = list_text(limit)
+        res = dad_jokes.list_jokes_as_text(limit=limit)
 
         # arguments
         res_list = res.splitlines()
