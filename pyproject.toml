@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "py-jokes-py"
-version = "1.0.1"
-description = "Python wrapper for the dad jokes API provided by icanhazdadjokes.com"
+version = "1.1.1"
+description = "Python wrapper for jokes APIs provided by icanhazdadjokes.com and jokeapi.dev"
 authors = ["Freedom Loisa <kitakayaloisa@gmail.com>"]
 readme = "README.md"
 packages = [{include = "jokes"}]
-homepage = "https://github.com/LoisaKitakaya/dad-jokes"
-documentation = "https://github.com/LoisaKitakaya/dad-jokes#readme"
+homepage = "https://github.com/LoisaKitakaya/Jokes"
+documentation = "https://github.com/LoisaKitakaya/Jokes#readme"
 keywords = ["python", "jokes", "api", "dad jokes"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -19,11 +19,11 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.9"
 requests = "^2.31.0"
-pytest = "^7.3.1"
 
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
+pytest = "^7.3.2"
 
 [build-system]
 requires = ["poetry-core"]
