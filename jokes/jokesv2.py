@@ -1,5 +1,5 @@
 import requests
-from dad_jokes.jokes import DadJokes
+from jokes.jokes import DadJokes
 
 
 class AllJokes(DadJokes):

@@ -1,4 +1,4 @@
-from dad_jokes.jokesv2 import AllJokes
+from jokes.jokesv2 import AllJokes
 
 jokes = AllJokes()  # jokes module: DadJokes class
 

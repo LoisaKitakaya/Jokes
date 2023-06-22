@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "dad-jokes"
+name = "py-jokes-py"
 version = "1.0.1"
 description = "Python wrapper for the dad jokes API provided by icanhazdadjokes.com"
 authors = ["Freedom Loisa <kitakayaloisa@gmail.com>"]
