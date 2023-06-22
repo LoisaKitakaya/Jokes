@@ -4,7 +4,7 @@ version = "1.0.1"
 description = "Python wrapper for the dad jokes API provided by icanhazdadjokes.com"
 authors = ["Freedom Loisa <kitakayaloisa@gmail.com>"]
 readme = "README.md"
-packages = [{include = "dad_jokes"}]
+packages = [{include = "jokes"}]
 homepage = "https://github.com/LoisaKitakaya/dad-jokes"
 documentation = "https://github.com/LoisaKitakaya/dad-jokes#readme"
 keywords = ["python", "jokes", "api", "dad jokes"]
