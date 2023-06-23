@@ -74,6 +74,18 @@ Here is a simple implementation of this package. Check it out:
 
 - [jokes_cli](https://github.com/LoisaKitakaya/jokes_cli)
 
+## Contribution
+
+If you want to contribute to this project, here are some few steps you can follow:
+
+- Fork this project's repository
+- Clone it to your local machine
+- Make the changes you want to make or add the features you want to add
+- Write tests for the new features
+- Make a pull request
+
+That's just about it.
+
 ## Issues
 
 For any issus encountered while using this package, feel free to submit a new issue [here](https://github.com/LoisaKitakaya/Jokes/issues).
